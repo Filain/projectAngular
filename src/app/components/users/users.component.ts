@@ -21,16 +21,10 @@ import {PostDetailComponent} from "../post-details/post-detail.component";
 })
 export class UsersComponent implements OnInit{
   users:IUser[]
-  userPosts:IPost[]
-  userId:number
   constructor(private usersService:UsersService) {
   }
 
   ngOnInit(): void {
     this.usersService.getAll().subscribe(value =>this.users=value)
-  }
-
-  getPost(userId:number) {
-   this.usersService.getById(userId).subscribe(value => this.userPosts=value)
   }
 }
